@@ -1,7 +1,11 @@
+<h1>商品一覧ページ</h1>
+
 <% @items.each do |item| %>
 <div>
+  <p>商品ID：<%= item.id %></p>
   <p>商品名：<%= item.name %></p>
-  <p>商品説明：<%= item.introduction %></p>
-  <p>税抜価格：<%= item.price %> %></p>
+  <p>税抜価格：<%= item.price %></p>
+  <p>ジャンル：<%= item.genre_id %></p>
+  <p>ステータス：<%= item.is_active %></p>
 </div>
 <% end %>
