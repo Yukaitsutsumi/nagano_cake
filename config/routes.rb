@@ -13,21 +13,37 @@ Rails.application.routes.draw do
     delete '/customers/sign_out' => 'public/sessions#destroy', as: :destroy_customer_session
   end
 
-
+  namespace :admin do
+    get 'top' => 'homes#top'
+    resources :items, except: [:destroy]
+    resources :genres, except: [:destroy, :new, :show]
+    resources :customers, only: [:index, :show, :edit, :update]
+  end
 
   root to: 'public/homes#top'
   get 'about' => 'public/homes#about'
   get 'items' => 'public/items#index'
   get 'items/:id' => 'public/items#show'
-  get 'customers/may_page' => 'public/customers#show'
+  get 'customers/my_page' => 'public/customers#show'
   get 'customers/edit' => 'public/customers#edit'
-  patch 'customers/may_page' => 'public/customers#update'
+  patch 'customers/my_page' => 'public/customers#update'
   get 'customers/unsubscribe' => 'public/customers#unsubscribe'
+  get 'cart_items' => 'public/cart_items#index'
+  patch 'cart_items/:id' => 'public/cart_items#update', as: :cart_item
+  post 'cart_items' => 'public/cart_items#create'
+  delete 'cart_items/destroy_all' => 'public/cart_items#destroy_all'
+  delete 'cart_items/:id' => 'public/cart_items#destroy', as: 'destroy_cart_item'
+  get 'orders/new' => 'public/orders#new'
+  post 'orders/confirm' => 'public/orders#confirm'
+  get 'orders/complete' => 'public/orders#complete'
+  post 'orders' => 'public/orders#create'
+  get 'orders' => 'public/orders#index'
+  get 'orders/:id' => 'public/orders#show'
 
-  namespace :admin do
-    get 'top' => 'homes#top'
-    resources :items, except: [:destroy]
-    resources :genres, except: [:destroy, :new, :show]
-  end
+  get 'addresses' => 'public/addresses#index', as: 'public_addresses'
+  post 'addresses' => 'public/addresses#create'
+  get 'addresses/:id/edit' => 'public/addresses#edit', as: 'edit_public_address'
+  patch 'addresses/:id' => 'public/addresses#update', as: 'public_address'
+  delete 'addresses/:id' => 'public/addresses#destroy', as: 'destroy_public_address'
 
 end

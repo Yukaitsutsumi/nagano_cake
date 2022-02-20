@@ -4,7 +4,11 @@
   <p><%= @item.name %></p>
   <p><%= @item.introduction %></p>
   <p>税込価格（税抜価格）：**（<%= @item.price %>）円</p>
-</div>
 
-個数選択
-カートに入れる
+  <%= form_with model:@cart_item, url:cart_items_path, local:true do |f| %>
+    <%= f.hidden_field :item_id, :value => @item.id %>
+    <%= f.hidden_field :customer_id, :value => @customer.id %>
+    <%= f.select :amount, *[1..10] %>
+    <%= f.submit 'カートに入れる' %>
+  <% end %>
+</div>

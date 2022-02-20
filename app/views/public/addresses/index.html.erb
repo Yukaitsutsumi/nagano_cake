@@ -1,0 +1,28 @@
+<h3>配送先登録/一覧</h3>
+<%= form_with model:@new_address, url:'/addresses', local:true do |f| %>
+
+  <%= f.hidden_field :customer_id, :value => @customer.id %>
+
+  <%= f.label :"郵便番号（ハイフンなし）" %>
+  <%= f.text_field :postal_code %>
+
+  <%= f.label :"住所" %>
+  <%= f.text_field :address %>
+
+  <%= f.label :"宛名" %>
+  <%= f.text_field :name %>
+
+  <%= f.submit '新規登録' %>
+<% end %>
+
+<% @addresses.each do |address| %>
+<div>
+  <p>
+    郵便番号：<%= address.postal_code %>
+    住所：<%= address.address %>
+    宛名：<%= address.name %>
+    <%= link_to "編集する", edit_public_address_path(address) %>
+    <%= link_to '削除',  destroy_public_address_path(address), method: :delete %>
+  </p>
+</div>
+<% end %>

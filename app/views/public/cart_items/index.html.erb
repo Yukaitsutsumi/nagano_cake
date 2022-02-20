@@ -1,0 +1,14 @@
+<h3>ショッピングカート</h3>
+<%= link_to "カートを空にする", cart_items_destroy_all_path(@cart_items), method: :delete %>
+<% @sum = 0 %>
+<% @cart_items.each do |cart_item| %>
+  <div>
+    商品名：<%= cart_item.item.name %>
+    単価(税込)：<%= cart_item.item.with_tax_price %>
+    数量：<%= cart_item.amount %>
+    小計：<%= cart_item.subtotal %>
+    <% @sum +=  cart_item.subtotal %>
+    <%= link_to "削除", destroy_cart_item_path(@cart_items.ids), method: :delete %>
+  </div>
+<% end %>
+合計金額：<%= @sum %>

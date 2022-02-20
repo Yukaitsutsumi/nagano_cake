@@ -1,25 +1,22 @@
-<h2>会員情報編集</h2>
-
-<%= form_with model: @customer, url: customers_my_page_path, method: :patch, local: true do |f| %>
-
-  <div>
-    <p>ID：<%= @customer.id %></p>
-  </div>
+<h4><%= @customer.last_name %><%= @customer.first_name %>さんの会員情報編集</h4>
+<%= form_with model: @customer, url: admin_customer_path, method: :patch, local: true do |f| %>
 
   <div class="field">
-    <%= f.label :"氏名" %>
+    <%= f.label :"(姓)" %>
     <%= f.text_field :last_name, autofocus: true %>
+    <%= f.label :"(名)" %>
     <%= f.text_field :first_name, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :"フリガナ" %>
+    <%= f.label :"(セイ)" %>
     <%= f.text_field :last_name_kana, autofocus: true %>
+    <%= f.label :"(メイ)" %>
     <%= f.text_field :first_name_kana, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :"郵便番号" %>
+    <%= f.label :"郵便番号（ハイフンなし）" %>
     <%= f.text_field :postal_code, autofocus: true %>
   </div>
 
@@ -38,11 +35,8 @@
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="field">
-    <%= f.label :"会員ステータス" %>
-  </div>
 
   <div class="actions">
-    <%= f.submit "変更を保存" %>
+    <%= f.submit "編集内容を保存" %>
   </div>
 <% end %>
