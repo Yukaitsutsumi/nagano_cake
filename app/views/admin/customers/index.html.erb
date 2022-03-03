@@ -1,12 +1,24 @@
-<h1>会員一覧</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10">
+      <h3>会員一覧</h3>
 
-<p>会員ID　氏名　メールアドレス　ステータス</p>
-
-<% @customers.each do |customer| %>
-<div>
-  <%= customer.id %>
-  <%= customer.last_name %><%= customer.first_name %>
-  <%= customer.email %>
-  <%= customer.is_active %>
+      <table class="table" border="1">
+        <tr>
+          <th>会員ID</th>
+          <th>氏名</th>
+          <th>メールアドレス</th>
+          <th>ステータス</th>
+        </tr>
+        <% @customers.each do |customer| %>
+        <tr>
+          <td><%= customer.id %></td>
+          <td><%= customer.last_name %><%= customer.first_name %></td>
+          <td><%= customer.email %></td>
+          <td><%= customer.is_active %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
 </div>
-<% end %>
