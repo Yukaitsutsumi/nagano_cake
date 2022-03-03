@@ -1,17 +1,36 @@
-<h2>ログイン</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
+      <h2>ログイン</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+      <table class="table table-borderless">
+      <th>会員の方はこちらからログイン</th>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name),local:true) do |f| %>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+      <tr>
+        <td><%= f.label "メールアドレス" %></td>
+        <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+      </tr>
+      </br>
+      <tr>
+        <td><%= f.label "パスワード" %></td>
+        <td><%= f.password_field :password, autocomplete: "current-password" %></td>
+      </tr>
+      </br>
+      <tr>
+        <td></td>
+        <td><%= f.submit "ログイン" %></td>
+      </tr>
+      <% end %>
+      </table>
 
-  <div class="actions"><br />
-    <%= f.submit "ログイン" %>
+      <table class="table table-borderless">
+        <th>会員登録がお済みでない方</th>
+        <tr>
+          <td></td>
+          <td><%= link_to "こちら", new_customer_registration_path %>から新規登録を登録を行ってください。</td>
+        </tr>
+      </table>
+    </div>
   </div>
-<% end %>
+</div>

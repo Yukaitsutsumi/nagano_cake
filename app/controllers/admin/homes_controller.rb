@@ -1,5 +1,7 @@
 class Admin::HomesController < ApplicationController
+
   def top
-    @items = @admin.items
+    @orders = Order.all
   end
+
 end

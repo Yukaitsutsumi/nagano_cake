@@ -1,3 +1,36 @@
 // Place all the styles related to the public::items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.row {
+  justify-content: center; /* 要素の横並び・中央寄せ */
+  padding: 70px 0; /* 上下に70px、左右に0pxの内側余白 */
+}
+
+.item-box {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.itembox-content {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.item-show {
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.item-image {
+  text-align: center;
+  flex: 1 1 auto;
+}
+
+.item-detail {
+  padding-left: 20px;
+  flex: 1 1 auto;
+}

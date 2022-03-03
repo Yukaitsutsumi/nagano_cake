@@ -1,9 +1,15 @@
-<h1>ここが客のトップページ</h1>
-<p>ようこそ！ながのCAKEへ！</br>
-このサイトは、ケーキ販売のECサイトになります。</br>
-会員でない方も商品の閲覧はできますが、</br>
-購入には会員登録が必要になります。</p>
-
-<h2>新着商品</h2>
-顧客<%= customer_signed_in? %></br>
-管理者<%= admin_signed_in? %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3">
+      ジャンル検索
+    </div>
+    <div class="col-lg-8">
+      <p>ようこそ！ながのCAKEへ！</br>
+      このサイトは、ケーキ販売のECサイトになります。</br>
+      会員でない方も商品の閲覧はできますが、</br>
+      購入には会員登録が必要になります。</p>
+      
+      <strong>新着商品<strong>
+    </div>
+  </div>
+</div>

@@ -14,10 +14,12 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    get 'top' => 'homes#top'
+    get '/' => 'homes#top'
     resources :items, except: [:destroy]
     resources :genres, except: [:destroy, :new, :show]
     resources :customers, only: [:index, :show, :edit, :update]
+    resources :orders, only: [:show, :update]
+    resources :order_details, only: [:update]
   end
 
   root to: 'public/homes#top'
@@ -39,7 +41,6 @@ Rails.application.routes.draw do
   post 'orders' => 'public/orders#create'
   get 'orders' => 'public/orders#index'
   get 'orders/:id' => 'public/orders#show', as: :show_order
-
   get 'addresses' => 'public/addresses#index', as: 'public_addresses'
   post 'addresses' => 'public/addresses#create'
   get 'addresses/:id/edit' => 'public/addresses#edit', as: 'edit_public_address'

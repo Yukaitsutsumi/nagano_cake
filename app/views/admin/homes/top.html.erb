@@ -1,1 +1,11 @@
-<h1>管理人のtopページ</h1>
+<h1>注文履歴一覧</h1>
+<% @orders.each do |order| %>
+  購入日時リンク、<%= order.created_at %></br>
+  購入者、<%= order.customer.last_name %><%= order.customer.first_name %></br>
+  注文個数：
+  <% order.order_details.each do |detail| %>
+  <%= detail.amount %>
+  <% end %></br>
+  注文ステータス：<%= order.status_i18n %></br>
+  </br>
+<% end %>
