@@ -7,8 +7,6 @@ class Customer < ApplicationRecord
   has_many :orders
   has_many :addresses, dependent: :destroy
 
-  protected
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:last_name, :first_name, :last_name_kana, :first_name_kana, :postal_code, :address, :telephone_number, :is_active, :created_at, :updated_at])
-  end
+  enum is_active: { yuko: true, taikai: false }
+
 end

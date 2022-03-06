@@ -2,6 +2,14 @@
 
 ja:
   enums:
+    customer:
+      is_active:
+        yuko: "有効"
+        taikai: "退会"
+    item:
+      is_active:
+        sale: "販売中"
+        stopsale: "販売停止中"
     order:
       payment_method:
         credit_card: "クレジットカード"

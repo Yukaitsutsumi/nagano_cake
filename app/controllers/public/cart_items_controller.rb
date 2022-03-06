@@ -1,4 +1,5 @@
 class Public::CartItemsController < ApplicationController
+  before_action :authenticate_customer!
 
   def with_tax_price
     (price * 1.1).floor
@@ -33,6 +34,10 @@ class Public::CartItemsController < ApplicationController
 
 
   def update
+    @cart_items = current_customer.cart_items
+    cart_items = current_customer.cart_items
+    cart_items.update(cart_item_params)
+    redirect_to cart_items_path
   end
 
   def destroy
