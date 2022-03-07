@@ -2,6 +2,11 @@
   <div class="row">
     <div class="col-lg-10">
       <h3>注文情報確認</h3>
+
+      <% if @order.errors.any? %>
+        お届け先を選択してください！
+      <% end %>
+
       <% @total = 0 %>
       <div class="order-box">
         <table border="1" class="table1">
@@ -22,13 +27,15 @@
         </table>
         <table border="1" class="table2">
           <tr>
-            <th>送料</th>
-            <th>商品合計</th>
-            <th>請求金額</th>
+            <td>送料</td>
+            <td><%= @order.shipping_cost %></td>
           </tr>
           <tr>
-            <td><%= @order.shipping_cost %></td>
+            <td>商品合計</td>
             <td><%= @total %></td>
+          </tr>
+          <tr>
+            <td>請求金額<%= @total %></td>
             <td><% @sum = @total + @order.shipping_cost %><%= @sum %></td>
           </tr>
         </table>

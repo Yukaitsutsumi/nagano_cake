@@ -34,7 +34,7 @@
         </tr>
         <tr>
           <td>会員ステータス</td>
-          <td></td>
+          <td><%= @customer.is_active_i18n %></td>
         </tr>
         <tr>
           <td><%= link_to "編集する", edit_admin_customer_path %></td>

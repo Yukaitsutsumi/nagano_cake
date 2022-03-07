@@ -1,4 +1,10 @@
 class Admin::ItemsController < ApplicationController
+  before_action :authenticate_admin!
+
+  def with_tax_price
+    (price * 1.1).floor
+  end
+
 
   def index
     @items = Item.all
