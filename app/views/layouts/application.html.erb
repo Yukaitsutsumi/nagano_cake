@@ -68,6 +68,17 @@
           <% end %>
           <% end %>
         </ul>
+
+        </br>
+
+        <ul class="navbar-nav ml-auto">
+          <%= form_tag(items_path,:method => 'get') do %>
+            <%= text_field_tag :search %>
+            <%= submit_tag 'Search', :name => nil %>
+          <% end %>
+        </ul>
+
+
       </div>
     </div>
   </nav>
