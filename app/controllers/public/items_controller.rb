@@ -7,7 +7,6 @@ class Public::ItemsController < ApplicationController
 
   def index
     @items = Item.all
-    @searchitems = Item.search(params[:search])
   end
 
   def show

@@ -22,7 +22,7 @@
             <% else %>
             <% end %>
             <%= f.select :amount, *[1..10], {include_blank: '個数選択'} %>
-            <%= f.submit 'カートに入れる' %>
+            <button class="btn btn-success" type="submit">カートに入れる</button>
           <% end %>
         </div>
       </div>

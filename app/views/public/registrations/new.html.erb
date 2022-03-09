@@ -49,14 +49,14 @@
   </tr>
   <tr>
     <td></td>
-    <td><%= f.submit "新規登録" %></td>
+    <td><button class="btn btn-success" type="submit">新規登録</button></td>
     <td></td>
   </tr>
 <% end %>
 </table>
 
-<table class="table2 table-borderless">
-  <th><center><h3>既に登録済みの方</h3></center></th>
+<table class="table table-borderless">
+  <th><h3>既に登録済みの方</h3></th>
   <tr>
     <td><%= link_to "こちら", new_customer_session_path %>からログインしてください。</td>
   </tr>

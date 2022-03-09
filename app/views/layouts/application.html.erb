@@ -13,7 +13,6 @@
   <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
       <a class="navbar-brand p-3" href="/">ながのcake</a>
-      管理者<%= admin_signed_in? %>
 
       <% if customer_signed_in? %>
           ようこそ、<%= current_customer.last_name %>さん！
@@ -22,61 +21,62 @@
 
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
+        <div class="d-grid gap-2 d-md-block">
           <% if customer_signed_in? %>
-          <li class="nav-item">
+          <button type="button" class="btn btn-outline-dark btn-sm"><li class="nav-item">
             <%= link_to "マイページ", customers_my_page_path, class: 'nav-link text-dark'  %>
-          </li>
-          <li class="nav-item">
+          </li></button>
+          <button type="button" class="btn btn-outline-dark btn-sm"><li class="nav-item">
             <%= link_to "商品一覧", items_path, class: 'nav-link text-dark'  %>
-          </li>
-          <li class="nav-item">
+          </li></button>
+          <button type="button" class="btn btn-outline-dark btn-sm"><li class="nav-item">
             <%= link_to "カート", cart_items_path(current_customer), class: 'nav-link text-dark'  %>
-          </li>
-          <li class="nav-item">
+          </li></button>
+          <button type="button" class="btn btn-outline-dark btn-sm"><li class="nav-item">
             <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-dark'  %>
-          </li>
+          </li></button>
           <% else %>
           <% if admin_signed_in? %>
-          <li class="nav-item">
+          <button type="button" class="btn btn-outline-dark btn-sm"><li class="nav-item">
             <%= link_to "商品一覧", admin_items_path, class: 'nav-link text-dark'  %>
-          </li>
-          <li class="nav-item">
+          </li></button>
+          <button type="button" class="btn btn-outline-dark btn-sm"><li class="nav-item">
             <%= link_to "会員一覧", admin_customers_path, class: 'nav-link text-dark'  %>
-          </li>
-          <li class="nav-item">
+          </li></button>
+          <button type="button" class="btn btn-outline-dark btn-sm"><li class="nav-item">
             <%= link_to "注文履歴一覧", admin_path, class: 'nav-link text-dark'  %>
-          </li>
-          <li class="nav-item">
+          </li></button>
+          <button type="button" class="btn btn-outline-dark btn-sm"><li class="nav-item">
             <%= link_to "ジャンル一覧", admin_genres_path, class: 'nav-link text-dark'  %>
-          </li>
-          <li class="nav-item">
+          </li></button>
+          <button type="button" class="btn btn-outline-dark btn-sm"><li class="nav-item">
             <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark'  %>
-          </li>
+          </li></button>
           <% else %>
-          <li class="nav-item">
+          <button type="button" class="btn btn-outline-dark btn-sm"><li class="nav-item">
             <%= link_to "About", about_path, class: 'nav-link text-dark'  %>
-          </li>
-          <li class="nav-item">
+          </li></button>
+          <button type="button" class="btn btn-outline-dark btn-sm"><li class="nav-item">
             <%= link_to "商品一覧", items_path, class: 'nav-link text-dark'  %>
-          </li>
-          <li class="nav-item">
+          </li></button>
+          <button type="button" class="btn btn-outline-dark btn-sm"><li class="nav-item">
             <%= link_to "新規登録", new_customer_registration_path, class: 'nav-link text-dark'  %>
-          </li>
-          <li class="nav-item">
+          </li></button>
+          <button type="button" class="btn btn-outline-dark btn-sm"><li class="nav-item">
             <%= link_to "ログイン", new_customer_session_path, class: 'nav-link text-dark'  %>
-          </li>
+          </li></button>
           <% end %>
           <% end %>
+          </div>
+        </div>
         </ul>
 
-        </br>
-
-        <ul class="navbar-nav ml-auto">
-          <%= form_tag(items_path,:method => 'get') do %>
-            <%= text_field_tag :search %>
-            <%= submit_tag 'Search', :name => nil %>
-          <% end %>
-        </ul>
+        <!--検索-->
+        <!--<ul class="navbar-nav ml-auto">-->
+        <!--  <%#= form_tag(items_path,:method => 'get') do %>-->
+        <!--    <##= submit_tag 'Search', :name => nil %>-->
+        <!--  <%# end %>-->
+        <!--</ul>-->
 
 
       </div>
