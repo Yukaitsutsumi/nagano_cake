@@ -10,15 +10,18 @@
   padding-bottom: 20px;
   margin-bottom: 20px;
   display: flex;
-  justify-content: flex-start;
+  flex-flow: row wrap;
+  justify-content: space;
 }
 
 .itembox-content {
-  margin-right: 20px;
-  margin-left: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  width: 25%;
 }
 
 .item-show {
+  padding-top: 10px;
   padding-bottom: 20px;
   margin-bottom: 20px;
   display: flex;
@@ -26,7 +29,7 @@
 }
 
 .item-image {
-  text-align: center;
+  padding-left: 10px;
   flex: 1 1 auto;
 }
 

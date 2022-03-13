@@ -17,7 +17,9 @@ Rails.application.routes.draw do
     get '/' => 'homes#top'
     resources :items, except: [:destroy]
     resources :genres, except: [:destroy, :new, :show]
-    resources :customers, only: [:index, :show, :edit, :update]
+    resources :customers, only: [:index, :show, :edit, :update] do
+      resources :orders, only: [:index]
+    end
     resources :orders, only: [:show, :update]
     resources :order_details, only: [:update]
   end
@@ -27,6 +29,7 @@ Rails.application.routes.draw do
 
   get 'items' => 'public/items#index'
   get 'items/:id' => 'public/items#show', as: :show_item
+  get 'search' => 'public/items#search'
 
   get 'customers/my_page' => 'public/customers#show'
   get 'customers/edit' => 'public/customers#edit'

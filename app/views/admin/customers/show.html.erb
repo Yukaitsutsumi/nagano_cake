@@ -34,11 +34,17 @@
         </tr>
         <tr>
           <td>会員ステータス</td>
-          <td><%= @customer.is_active_i18n %></td>
+          <td>
+            <% if @customer.is_active == true %>
+              <font color=#00FF00><%= "有効" %></font>
+            <% else  %>
+              <font color="gray"><%= "退会" %></font>
+            <% end  %>
+          </td>
         </tr>
         <tr>
           <td><%= link_to "編集する", edit_admin_customer_path, class: "btn btn-success" %></td>
-          <td>注文履歴一覧を見る</td>
+          <td><%= link_to "注文履歴一覧を見る", admin_customer_orders_path(@customer), class: "btn btn-primary" %></td>
         </tr>
       </table>
     </div>

@@ -4,8 +4,9 @@
       <h3>注文履歴詳細</h3>
       </br>
       <div class="order-box">
-        <strong>注文履歴詳細</strong>
-        <table border="1" class="table1">
+        <div class="table1">
+        <table border="1">
+          <strong>注文履歴詳細</strong>
           <tr>
             <td>注文日</td>
             <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
@@ -23,22 +24,25 @@
             <td><%= @order.status_i18n %></td>
           </tr>
         </table>
+        </div>
 
-        <strong>請求情報</strong>
-        <table border="1" class="table3">
-        <tr>
-          <td>商品合計</td>
-          <td><% @sum = @order.total_payment.to_i - @order.shipping_cost.to_i %><%= @sum %></td>
-        </tr>
-        <tr>
-          <td>配送料</td>
-          <td><%= @order.shipping_cost %></td>
-        </tr>
-        <tr>
-          <td>ご請求額</td>
-          <td><%= @order.total_payment %></td>
-        </tr>
+        <div class="table3">
+        <table border="1">
+          <strong>請求情報</strong>
+          <tr>
+            <td width="100">商品合計</td>
+            <td width="100"><% @sum = @order.total_payment.to_i - @order.shipping_cost.to_i %><%= @sum %></td>
+          </tr>
+          <tr>
+            <td width="100">配送料</td>
+            <td width="100"><%= @order.shipping_cost %></td>
+          </tr>
+          <tr>
+            <td width="100">ご請求額</td>
+            <td width="100"><%= @order.total_payment %></td>
+          </tr>
         </table>
+        </div>
       </div>
 
       </br>

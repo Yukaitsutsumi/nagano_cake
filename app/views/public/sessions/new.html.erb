@@ -3,10 +3,10 @@
     <div class="col-lg-8">
       <h2>ログイン</h2>
 
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name),local:true) do |f| %>
       <table class="table table-borderless">
       <th>会員の方はこちらからログイン</th>
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name),local:true) do |f| %>
-
       <tr>
         <td><%= f.label "メールアドレス" %></td>
         <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
@@ -21,8 +21,8 @@
         <td></td>
         <td><button class="btn btn-primary" type="submit">ログイン</button></td>
       </tr>
-      <% end %>
       </table>
+      <% end %>
 
       <table class="table table-borderless">
         <th>会員登録がお済みでない方</th>

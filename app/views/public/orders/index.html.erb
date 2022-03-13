@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-lg-10">
       <h3>注文履歴一覧</h3>
-        <table border="1">
+        <table class="orderindex-table" border="1">
           <tr>
             <th>注文日</th>
             <th>発送先</th>
@@ -15,10 +15,13 @@
         <% @orders.each do |order| %>
           <tr>
             <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
-            <td>〒<%= order.postal_code %> <%= order.address %> <%= order.name %></td>
+            <td>〒<%= order.postal_code %></br>
+                <%= order.address %></br>
+                <%= order.name %>
+            </td>
             <td>
               <% order.order_details.each do |detail| %>
-                <p1><%= detail.item.name %></p1>
+                <%= detail.item.name %></br>
               <% end %>
             </td>
             <td><%= order.total_payment %></td>

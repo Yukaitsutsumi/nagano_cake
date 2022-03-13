@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-lg-8">
       <h2>会員情報編集</h2>
-      <table class="table table-borderless">
-        <%= form_with model: @customer, url: customers_my_page_path, method: :patch, local: true do |f| %>
+      <%= form_with model: @customer, url: customers_my_page_path, method: :patch, local: true do |f| %>
+        <table class="table table-borderless">
           <tr>
             <td><%= f.label :"氏名" %></td>
             <td><%= f.text_field :last_name, autofocus: true %></td>
@@ -35,8 +35,8 @@
             <td><button class="btn btn-success" type="submit">変更を保存</button></td>
             <td><%= link_to "退会する", customers_unsubscribe_path, class: "btn btn-danger" %></td>
           </tr>
-        <% end %>
-      </table>
+        </table>
+      <% end %>
     </div>
   </div>
 </div>

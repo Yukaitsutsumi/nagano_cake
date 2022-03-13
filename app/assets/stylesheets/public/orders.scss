@@ -31,7 +31,7 @@
 }
 
 .order-box {
-  width : 80%;
+  width : 100%;
   padding-bottom: 20px;
   display: flex;
   justify-content: flex-start;
@@ -45,11 +45,15 @@
   margin-left: 25px;
   width: 20%;
 }
+
 .table3 {
-  margin-left: 25px;
   width: 35%;
 }
 
 .order-table {
   width: 60%;
+}
+
+.orderindex-table {
+  width: 100%;
 }

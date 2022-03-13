@@ -6,10 +6,24 @@ class Public::ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.all
+    @genres = Genre.all
+    if params[:id]
+      @genre = Genre.find(params[:id])
+      @items = @genre.items.all
+    else
+      @items = Item.all
+    end
+  end
+
+  def search
+    @genres = Genre.all
+    @items = Item.search(params[:keyword])
+    @keyword = params[:keyword]
+    render "index"
   end
 
   def show
+    @genres = Genre.all
     @item = Item.find(params[:id])
     @cart_item = CartItem.new
     @customer = current_customer

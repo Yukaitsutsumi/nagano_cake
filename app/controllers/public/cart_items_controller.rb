@@ -13,9 +13,10 @@ class Public::CartItemsController < ApplicationController
 
   def create
     cart_item = CartItem.new(cart_item_params)
-    if CartItem.find_by(item_id: params.dig(:cart_item, :item_id))
-      count = params.dig(:cart_item, :amount).to_i
-      item = CartItem.find_by(item_id: params.dig(:cart_item, :item_id))
+    current_cartitem = current_customer.cart_items
+    if current_cartitem.find_by(item_id: params[:cart_item][:item_id])
+      count = params[:cart_item][:amount].to_i
+      item = current_cartitem.find_by(item_id: params[:cart_item][:item_id])
       item.increment(:amount, count)
       item.save
     else

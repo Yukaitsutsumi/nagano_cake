@@ -3,8 +3,8 @@
     <div class="col-lg-6">
       <h3>商品編集</h3>
 
+      <%= form_with model:@item, url:admin_item_path(@item.id), local:true do |f| %>
       <table class="table table-borderless">
-        <%= form_with model:@item, url:admin_item_path(@item.id), local:true do |f| %>
         <tr>
           <td><%= f.label :"商品画像" %></td>
           <td><%= f.attachment_field :image %></td>

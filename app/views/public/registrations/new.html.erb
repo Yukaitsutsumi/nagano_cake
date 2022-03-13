@@ -1,9 +1,9 @@
 <div class="container">
 <div class="row">
 <div class="col-lg-8">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 <table class="table table-borderless">
   <th><center><h3>新規登録画面</h3></center></th>
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <tr>
     <td><%= f.label :"名前" %></td>
     <td>（姓）<%= f.text_field :last_name, autofocus: true %></td>
@@ -52,8 +52,8 @@
     <td><button class="btn btn-success" type="submit">新規登録</button></td>
     <td></td>
   </tr>
-<% end %>
 </table>
+<% end %>
 
 <table class="table table-borderless">
   <th><h3>既に登録済みの方</h3></th>

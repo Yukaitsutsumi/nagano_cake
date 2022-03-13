@@ -9,7 +9,9 @@ class Item < ApplicationRecord
 
   enum is_active: { sale: true, stopsale: false }
 
-
+  def self.search(keyword)
+  where(["name like? OR introduction like?", "%#{keyword}%", "%#{keyword}%"])
+  end
 
   def with_tax_price
     (price * 1.1).floor
