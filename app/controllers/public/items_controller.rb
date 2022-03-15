@@ -7,8 +7,10 @@ class Public::ItemsController < ApplicationController
 
   def index
     @genres = Genre.all
-    if params[:id]
-      @genre = Genre.find(params[:id])
+    #paramsで受け取ったもの[名前]が存在していれば、、、
+    if params[:genre_id]
+      #＠genreに受け取ったもの[名前]のなかにある値を入れる（スイーツとか）
+      @genre = Genre.find(params[:genre_id])
       @items = @genre.items.all
     else
       @items = Item.all

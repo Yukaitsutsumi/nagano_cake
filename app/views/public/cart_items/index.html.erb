@@ -42,7 +42,11 @@
 
       <table class="table table-borderless">
         <tr>
-          <center><%= link_to "情報入力に進む", orders_new_path, class: "btn btn-success" %></center>
+          <center>
+            <% if current_customer.cart_items.exists? %>
+              <%= link_to "情報入力に進む", orders_new_path, class: "btn btn-success" %>
+            <% end %>
+          </center>
         </tr>
       </table>
     </div>

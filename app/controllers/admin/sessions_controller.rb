@@ -30,4 +30,8 @@ class Admin::SessionsController < Devise::SessionsController
     admin_session_path # ログアウト後に遷移するpathを設定
   end
 
+  def after_sign_in_path_for(resource)
+    admin_path # ログアウト後に遷移するpathを設定
+  end
+
 end
