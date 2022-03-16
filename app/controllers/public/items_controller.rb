@@ -1,5 +1,5 @@
 class Public::ItemsController < ApplicationController
-  before_action :authenticate_customer!,except: [:index, :show]
+  before_action :authenticate_customer!,except: [:index, :show, :search]
 
   def with_tax_price
     (price * 1.1).floor
@@ -11,15 +11,15 @@ class Public::ItemsController < ApplicationController
     if params[:genre_id]
       #＠genreに受け取ったもの[名前]のなかにある値を入れる（スイーツとか）
       @genre = Genre.find(params[:genre_id])
-      @items = @genre.items.all
+      @items = @genre.items.all.page(params[:page]).per(8)
     else
-      @items = Item.all
+      @items = Item.all.page(params[:page]).per(8)
     end
   end
 
   def search
     @genres = Genre.all
-    @items = Item.search(params[:keyword])
+    @items = Item.search(params[:keyword]).page(params[:page]).per(8)
     @keyword = params[:keyword]
     render "index"
   end

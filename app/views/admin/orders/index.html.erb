@@ -18,11 +18,12 @@
               <% @sum +=  detail.amount %>
             <% end %>
             <%= @sum %>
-          </td>
-          <td><%= order.status_i18n %></td>
-        </tr>
+            </td>
+            <td><%= order.status_i18n %></td>
+          </tr>
         <% end %>
       </table>
+      <%= paginate @orders %>
     </div>
   </div>
 </div>
